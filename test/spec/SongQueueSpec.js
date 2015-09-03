@@ -3,15 +3,16 @@ describe('SongQueue', function() {
 
   beforeEach(function() {
     playSpy = sinon.spy(SongQueue.prototype, 'playFirst');
-    songData1 = {
-      artist: 'data',
-      url: '/test/testsong.mp3',
-      title:'test song'
+    songData1 =   {
+      url: "https://s3-us-west-1.amazonaws.com/hr-mytunes/data/06+If+Your+Girl+Only+Knew.mp3",
+      title: "If Your Girl Only Knew",
+      artist: "Aaliyah",
     };
+
     songData2 = {
-      artist: 'data',
-      url: '/test/testsong2.mp3',
-      title:'test song 2'
+      url: "https://s3-us-west-1.amazonaws.com/hr-mytunes/data/05+Hot+Like+Fire.mp3",
+      title: "Hot Like Fire",
+      artist: "Aaliyah",
     };
   });
 
