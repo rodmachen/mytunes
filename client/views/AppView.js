@@ -18,6 +18,19 @@ var AppView = Backbone.View.extend({
       console.log(this);
       this.songQueueView.render();
     }, this);
+
+    this.playerView.on('songend', function(currentSong) {
+      var songQueue = this.model.get('songQueue');
+      //songQueue.remove(currentSong);
+      songQueue.shift();
+      this.songQueueView.render();
+      this.model.set('currentSong', songQueue.at(0));
+    }, this);
+
+    this.model.get('songQueue').on('change', function(coll) {
+      console.log('SongQueue collection changed: ');
+      console.log(coll);
+    })
   },
 
   render: function(){

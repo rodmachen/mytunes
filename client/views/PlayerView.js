@@ -8,6 +8,14 @@ var PlayerView = Backbone.View.extend({
   initialize: function() {
   },
 
+  events: {
+    'ended': function() {
+      // this <-- refers to the instance of PlayerView instantiated in AppView.js
+      // this.model <-- refers to the currentSong property of AppModel.js
+      this.trigger('songend', this.model);
+    }
+  },
+
   setSong: function(song){
     this.model = song;
     this.render();
